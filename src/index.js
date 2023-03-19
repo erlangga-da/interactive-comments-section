@@ -1,13 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Comment from './pages/Comment';
+import data from './data.json';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+let items = localStorage.getItem('data')
+if (items === null) {
+  localStorage.setItem('raw', JSON.stringify(data));
+  console.log("woy");
+}else {
+  localStorage.setItem('raw', JSON.stringify(items));
+}
 root.render(
   <React.StrictMode>
-    <App />
+    <Comment/>
   </React.StrictMode>
 );
 
